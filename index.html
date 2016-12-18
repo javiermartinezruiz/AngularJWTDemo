@@ -1,0 +1,52 @@
+<html lang="en" ng-app="SAJWTDemo">
+<head>
+  <script src="scripts/angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+  <script src="scripts/app.js"></script>
+</head>
+<body>
+  <div ng-controller="SAJWTDemoController as controller">
+      <div>
+        <button ng-click="controller.login()">Login</button>
+        <button ng-click="controller.getUsers()">Get Users</button>
+        <button ng-click="controller.getPublicUsers()">Get Public Users</button>
+        <button ng-click="controller.logout()">Logout</button>
+      </div>
+<h2 ng-if="controller.users.length > 0">Items found {{items.length}}</h2>
+      <table class="table">
+        <thead>
+          <th>
+            Name
+          </th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in controller.users">
+            <td>
+              {{item.username}}
+            </td>
+            <td>
+              {{item.completeName}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<hr />
+
+<table class="table">
+  <thead>
+    <th>
+      Name
+    </th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in controller.publicUsers">
+      <td>
+        {{item.username}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
